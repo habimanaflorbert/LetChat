@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+
+<style>
+  #chat-messages{
+    height:400px;
+    overflow-y:auto
+  }
+</style>
+<nav class="bg-black flex">
+<div class="md:w-1/2">
+    <h2 class="text-white font-bold text-2xl py-4 px-2">LetChat</h2>
+</div>
+<div class="md:w-1/2 ">
+   <div class="float-right text-white flex">
+    {%if request.user.is_authenticated %}
+    <a href="{% url 'rooms'%}" class="font-semibold px-3 py-4">Room</a>
+    <a href="" class="font-semibold bg-red-700 mx-2 px-2 py-2 my-2 rounded">Logout</a>
+    {%else%}
+
+    <a href="/" class="font-semibold px-3 py-4">Login</a>
+    <a href="{% url 'singup'%}" class="font-semibold bg-green-700 mx-2 px-2 py-2 my-2 rounded">Create account</a>
+    {%endif%}
+   </div>
+</div>
+</nav>
+<h3 class="text-center text-2xl text-gray-700 py-4">{% block title %}LetChat{% endblock %}</h3>
+<div class="py-3 px-3">
+{% block content%}{%endblock%}
+{% block scripts%}{%endblock%}
+</div>
+</div>
+</body>
+</html>
